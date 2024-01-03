@@ -230,7 +230,92 @@ zoom: 170%; /* this viewport makes your site smaller, so let's apply zoom ◝꒰
 
 
 </head>
+<html xmlns="https://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				font-family: Verdana
+				font-size: 10px;
+			}
+			
+			ul {
+				list-style: none
+			}
+			
+			#context_menu {
+				background: #fcf6f2;
+				-moz-border-radius: 1px 1px;
+				border: 1px dotted #baada3;
+				letter-spacing:1px; 
+				width: 110px;
+				font-size: 10px;
+				position: absolute;
+				display: none;
+				z-index:999;
+			}
+			
+			#context_menu ul li {
+				padding: 4px 4px;
+				-moz-border-radius: 10px 10px;
+				cursor: url(https://i.imgur.com/C9RGjYt.png), progress;
+			}
+			
+			#context_menu ul li:hover {
+				background: #fcf6f2;
+				color: #baada3;
+			}
+		</style>
+		<script type="text/javascript" language="JavaScript">
+			function click(e){
+				document.getElementById("teste").innerHTML = "";
+				var menu = document.getElementById("context_menu");
+				var mouseEvent = e || event;
+				if (mouseEvent.button == 2 || mouseEvent.button == 3) {
+					mostrar(mouseEvent);
+					menu.onmouseout = function(e){
+						var mouseEvent = e || event;
+						var element = mouseEvent.relatedTarget || mouseEvent.toElement; 
+						if (element.nodeName != "LI") {
+							mouseEvent.toElement;
+						}
+					};
+				}
+				if (mouseEvent.button == 0 || mouseEvent.button == 1) {
+					esconder();
+				}
+			}
+			
+			document.onmousedown = click;
+			document.oncontextmenu = function(){
+				return false
+			};
+			function mostrar(e){
+				var menu = document.getElementById("context_menu");
+				menu.style.display = "block";
+				menu.style.top = e.pageY + 5 + "px";
+				menu.style.left = e.pageX + 5 + "px";
+			}
+			
+			function esconder(){
+				setTimeout(function(){
+					var menu = document.getElementById("context_menu");
+					menu.style.display = "none"
+				}, 100);
+			}
+			
+		</script>
+	</head>
+		<div id="teste"></div>
+		<div id="context_menu">
+			<ul>
+				<li><font color="#baada3">@purebelle.my ♡</font></li>
+			</ul>
+		</div>
 
+</head>
 
 
 <!--   ・゜ ♡   here ⤵ you can edit the standard body style, such as the background image, color and font.
@@ -318,7 +403,7 @@ z-index: 10; /* the z-index values define the order in which elements appear on 
 
 <br><br>
 
-<a href="./about.html"> <!--  example site page link ◝꒰ ´ ˘ `  -->
+<a href="./archive.html"> <!--  example site page link ◝꒰ ´ ˘ `  -->
 <img src="https://i.imgur.com/d8swY5k.png"> <!--  about image  -->
 </a>
 
@@ -360,7 +445,7 @@ edit where it will be on the screen by changing the "left" and "top" numbers  �
 	top: 35px;
 position: absolute; 
 z-index: 0;
-" src="https://i.imgur.com/4x9yBPk.png">
+" src="https://i.imgur.com/7a5lwu9.png">
 
 
 
